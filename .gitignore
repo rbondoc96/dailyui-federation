@@ -1,3 +1,7 @@
+# Build
+build
+dist
+
 # General
 .DS_Store
 
