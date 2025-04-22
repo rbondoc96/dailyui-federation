@@ -1,0 +1,11 @@
+{
+    "name": "dailyui-federation",
+    "private": true,
+    "packageManager": "pnpm@10.8.1",
+    "author": "Rodrigo Bondoc",
+    "version": "1.0.0",
+    "description": "Daily UI challenges implemented with React and Vue.js with a microfrontend architecture.",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    }
+}
