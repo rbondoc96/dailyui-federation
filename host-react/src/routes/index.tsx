@@ -9,6 +9,13 @@ function RouteComponent() {
     return (
         <div className="px-4 mx-auto flex-1 flex flex-col justify-center items-center [view-transition-name:main-content]">
             <div className="flex flex-col gap-y-6 items-center">
+                <div className="icon-container">
+                    <img
+                    src="https://module-federation.io/svg.svg"
+                    alt="logo"
+                    className="logo-image"
+                    />
+                </div>
                 <h1 className="text-5xl font-bold tracking-tight">Daily UI Federation</h1>
                 <p className="text-xl font-light">
                     A collection of Daily UI challenges implemented in different frameworks through Module Federation.
