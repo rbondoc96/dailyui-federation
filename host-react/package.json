@@ -1,0 +1,32 @@
+{
+    "name": "host-react",
+    "private": true,
+    "version": "1.0.0",
+    "scripts": {
+        "dev": "rsbuild dev",
+        "build": "rsbuild build",
+        "preview": "rsbuild preview"
+    },
+    "dependencies": {
+        "@module-federation/enhanced": "^0.13.0",
+        "@radix-ui/react-tabs": "^1.1.9",
+        "@tanstack/react-router": "^1.117.0",
+        "class-variance-authority": "^0.7.1",
+        "lucide-react": "^0.503.0",
+        "react": "^19.0.0",
+        "react-dom": "^19.0.0",
+        "tailwind-merge": "^3.2.0"
+    },
+    "devDependencies": {
+        "@rsbuild/core": "^1.2.15",
+        "@rsbuild/plugin-react": "^1.1.1",
+        "@rspack/plugin-react-refresh": "^1.4.1",
+        "@tailwindcss/postcss": "^4.1.4",
+        "@tanstack/router-plugin": "^1.117.0",
+        "@types/react": "^19.0.0",
+        "@types/react-dom": "~19.1.0",
+        "tailwindcss": "^4.1.4",
+        "tailwindcss-animate": "^1.0.7",
+        "typescript": "^5.7.2"
+    }
+}

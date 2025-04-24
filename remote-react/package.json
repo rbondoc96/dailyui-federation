@@ -1,0 +1,23 @@
+{
+    "name": "remote-react",
+    "private": true,
+    "version": "1.0.0",
+    "scripts": {
+        "dev": "rsbuild dev",
+        "build": "rsbuild build",
+        "preview": "rsbuild preview"
+    },
+    "dependencies": {
+        "react": "^19.0.0",
+        "react-dom": "^19.0.0"
+    },
+    "devDependencies": {
+        "@rsbuild/core": "^1.2.15",
+        "@rsbuild/plugin-react": "^1.1.1",
+        "@tailwindcss/postcss": "^4.1.4",
+        "@types/react": "^19.0.0",
+        "@types/react-dom": "~19.1.0",
+        "tailwindcss": "^4.1.4",
+        "typescript": "^5.7.2"
+    }
+}

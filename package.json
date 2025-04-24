@@ -6,7 +6,11 @@
     "version": "1.0.0",
     "description": "Daily UI challenges implemented with React and Vue.js with a microfrontend architecture.",
     "scripts": {
-        "@consumer:dev": "pnpm --filter mf_consumer dev",
-        "@provider:dev": "pnpm --filter mf_provider dev"
+        "@host:dev": "pnpm --filter host-react dev",
+        "@remote-react:dev": "pnpm --filter remote-react dev",
+        "@remote-vue:dev": "pnpm --filter remote-vue dev"
+    },
+    "devDependencies": {
+        "@module-federation/rsbuild-plugin": "^0.13.0"
     }
 }

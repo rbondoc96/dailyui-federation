@@ -1,3 +1,4 @@
 packages:
-  - mf_consumer
-  - mf_provider
+  - host-react
+  - remote-react
+  - remote-vue
