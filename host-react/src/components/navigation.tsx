@@ -1,10 +1,23 @@
 import * as Dialog from '@radix-ui/react-dialog';
 import { Link } from '@tanstack/react-router';
 import { X } from 'lucide-react';
-import { ReactNode, useState } from 'react';
+import { PropsWithChildren, ReactNode, useState } from 'react';
 import {Drawer} from 'vaul';
 import { cn } from '@/utilities/styles';
 import {useMediaQuery} from '@/hooks/use-media-query';
+
+function NavigationToolbar({ children }: PropsWithChildren): ReactNode {
+    return (
+        <div className="fixed bottom-0 inset-x-0 bg-pink-800 flex justify-between text-xs px-2 py-0.5">
+            <div className="italic">
+                <span>Viewing: </span>
+                <span>Proof of Concept</span>
+            </div>
+
+            {children}
+        </div>
+    );
+}
 
 type NavigationLink = {
     label: string;
