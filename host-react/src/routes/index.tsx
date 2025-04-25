@@ -7,7 +7,7 @@ export const Route = createFileRoute('/')({
 
 function RouteComponent() {
     return (
-        <div className="px-4 mx-auto flex-1 flex flex-col justify-center items-center [view-transition-name:main-content]">
+        <div className="flex-1 flex flex-col justify-center items-center [view-transition-name:main-content]">
             <div className="flex flex-col gap-y-6 items-center">
                 <div className="icon-container">
                     <img
