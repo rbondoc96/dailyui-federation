@@ -21,6 +21,10 @@ const links: NavigationLink[] = [
         to: '/poc',
     },
     {
+        label: '#3: Landing Page',
+        to: '/daily-ui-3',
+    },
+    {
         label: '#21: Home Monitoring Dashboard',
         to: '/daily-ui-21',
     }

@@ -14,6 +14,7 @@ import { Route as rootRoute } from './routes/__root'
 import { Route as AppLayoutImport } from './routes/_appLayout'
 import { Route as IndexImport } from './routes/index'
 import { Route as AppLayoutPocImport } from './routes/_appLayout/poc'
+import { Route as AppLayoutDailyUi3Import } from './routes/_appLayout/daily-ui-3'
 import { Route as AppLayoutDailyUi21Import } from './routes/_appLayout/daily-ui-21'
 
 // Create/Update Routes
@@ -32,6 +33,12 @@ const IndexRoute = IndexImport.update({
 const AppLayoutPocRoute = AppLayoutPocImport.update({
   id: '/poc',
   path: '/poc',
+  getParentRoute: () => AppLayoutRoute,
+} as any)
+
+const AppLayoutDailyUi3Route = AppLayoutDailyUi3Import.update({
+  id: '/daily-ui-3',
+  path: '/daily-ui-3',
   getParentRoute: () => AppLayoutRoute,
 } as any)
 
@@ -66,6 +73,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AppLayoutDailyUi21Import
       parentRoute: typeof AppLayoutImport
     }
+    '/_appLayout/daily-ui-3': {
+      id: '/_appLayout/daily-ui-3'
+      path: '/daily-ui-3'
+      fullPath: '/daily-ui-3'
+      preLoaderRoute: typeof AppLayoutDailyUi3Import
+      parentRoute: typeof AppLayoutImport
+    }
     '/_appLayout/poc': {
       id: '/_appLayout/poc'
       path: '/poc'
@@ -80,11 +94,13 @@ declare module '@tanstack/react-router' {
 
 interface AppLayoutRouteChildren {
   AppLayoutDailyUi21Route: typeof AppLayoutDailyUi21Route
+  AppLayoutDailyUi3Route: typeof AppLayoutDailyUi3Route
   AppLayoutPocRoute: typeof AppLayoutPocRoute
 }
 
 const AppLayoutRouteChildren: AppLayoutRouteChildren = {
   AppLayoutDailyUi21Route: AppLayoutDailyUi21Route,
+  AppLayoutDailyUi3Route: AppLayoutDailyUi3Route,
   AppLayoutPocRoute: AppLayoutPocRoute,
 }
 
@@ -96,6 +112,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '': typeof AppLayoutRouteWithChildren
   '/daily-ui-21': typeof AppLayoutDailyUi21Route
+  '/daily-ui-3': typeof AppLayoutDailyUi3Route
   '/poc': typeof AppLayoutPocRoute
 }
 
@@ -103,6 +120,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '': typeof AppLayoutRouteWithChildren
   '/daily-ui-21': typeof AppLayoutDailyUi21Route
+  '/daily-ui-3': typeof AppLayoutDailyUi3Route
   '/poc': typeof AppLayoutPocRoute
 }
 
@@ -111,19 +129,21 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/_appLayout': typeof AppLayoutRouteWithChildren
   '/_appLayout/daily-ui-21': typeof AppLayoutDailyUi21Route
+  '/_appLayout/daily-ui-3': typeof AppLayoutDailyUi3Route
   '/_appLayout/poc': typeof AppLayoutPocRoute
 }
 
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '' | '/daily-ui-21' | '/poc'
+  fullPaths: '/' | '' | '/daily-ui-21' | '/daily-ui-3' | '/poc'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '' | '/daily-ui-21' | '/poc'
+  to: '/' | '' | '/daily-ui-21' | '/daily-ui-3' | '/poc'
   id:
     | '__root__'
     | '/'
     | '/_appLayout'
     | '/_appLayout/daily-ui-21'
+    | '/_appLayout/daily-ui-3'
     | '/_appLayout/poc'
   fileRoutesById: FileRoutesById
 }
@@ -159,11 +179,16 @@ export const routeTree = rootRoute
       "filePath": "_appLayout.tsx",
       "children": [
         "/_appLayout/daily-ui-21",
+        "/_appLayout/daily-ui-3",
         "/_appLayout/poc"
       ]
     },
     "/_appLayout/daily-ui-21": {
       "filePath": "_appLayout/daily-ui-21.tsx",
+      "parent": "/_appLayout"
+    },
+    "/_appLayout/daily-ui-3": {
+      "filePath": "_appLayout/daily-ui-3.tsx",
       "parent": "/_appLayout"
     },
     "/_appLayout/poc": {
