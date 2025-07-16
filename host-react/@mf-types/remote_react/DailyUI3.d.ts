@@ -1,2 +1,2 @@
-export * from './compiled-types/challenges/DailyUI3';
-export { default } from './compiled-types/challenges/DailyUI3';
+export * from './compiled-types/challenges/daily-ui-003/index';
+export { default } from './compiled-types/challenges/daily-ui-003/index';

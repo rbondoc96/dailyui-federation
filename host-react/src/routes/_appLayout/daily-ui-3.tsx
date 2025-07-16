@@ -7,7 +7,8 @@ export const Route = createFileRoute('/_appLayout/daily-ui-3')({
 
 function DailyUI3RouteComponent() {
     return (
-        <div className="flex-1 flex justify-center items-center">
+        // `id` is just used as a marker for development.
+        <div className="flex-1 flex flex-col bg-white text-black" id="daily-ui-3">
             <DailyUI3 />
         </div>
     );

@@ -23,7 +23,8 @@ function RouteComponent() {
             <div className="relative flex-1 flex">
                 <Navigation ref={navigationRef} />
 
-                <div ref={contentRef} className="flex-1 flex flex-col">
+                {/* `id` is just used as a marker for development. */}
+                <div ref={contentRef} className="flex-1 flex flex-col" id="challenge-container">
                     <Outlet />
                 </div>
             </div>
