@@ -1,7 +1,7 @@
 import * as Dialog from '@radix-ui/react-dialog';
 import { Link, useLocation } from '@tanstack/react-router';
 import { X } from 'lucide-react';
-import { PropsWithChildren, ReactNode, useMemo, useState } from 'react';
+import { forwardRef, PropsWithChildren, useMemo, useState } from 'react';
 import {Drawer} from 'vaul';
 import { cn } from '@/utilities/styles';
 import {useMediaQuery} from '@/hooks/use-media-query';
@@ -30,7 +30,7 @@ const links: NavigationLink[] = [
     }
 ];
 
-function NavigationToolbar({ children }: PropsWithChildren): ReactNode {
+const NavigationToolbar = forwardRef<HTMLDivElement, PropsWithChildren>(({children}, ref) => {
     const location = useLocation();
 
     const name = useMemo(() => {
@@ -44,7 +44,7 @@ function NavigationToolbar({ children }: PropsWithChildren): ReactNode {
     }, [location.pathname])
 
     return (
-        <div className="fixed bottom-0 inset-x-0 bg-pink-800 flex justify-between text-xs px-2 py-0.5">
+        <div ref={ref} className="fixed bottom-0 inset-x-0 bg-pink-800 flex justify-between text-xs px-2 py-0.5">
             <div className="italic">
                 <span>Viewing: </span>
                 <span>{name}</span>
@@ -53,17 +53,17 @@ function NavigationToolbar({ children }: PropsWithChildren): ReactNode {
             {children}
         </div>
     );
-}
+});
 
 type BaseNavigationProps = {
     open: boolean;
     onOpenChange: (value: boolean) => void;
 };
 
-export function DesktopNavigation({open, onOpenChange}: BaseNavigationProps): ReactNode {
+const DesktopNavigation = forwardRef<HTMLDivElement, BaseNavigationProps>(({open, onOpenChange}, ref) => {
     return (
         <Dialog.Root open={open} onOpenChange={onOpenChange}>
-            <NavigationToolbar>
+            <NavigationToolbar ref={ref}>
                 <Dialog.Trigger className="text-white underline underline-offset-3">Open Menu</Dialog.Trigger>
             </NavigationToolbar>
             <Dialog.Portal>
@@ -109,12 +109,12 @@ export function DesktopNavigation({open, onOpenChange}: BaseNavigationProps): Re
             </Dialog.Portal>
         </Dialog.Root>
     );
-}
+});
 
-export function MobileNavigation({open, onOpenChange}: BaseNavigationProps): ReactNode {
+const MobileNavigation = forwardRef<HTMLDivElement, BaseNavigationProps>(({open, onOpenChange}, ref) => {
     return (
         <Drawer.Root shouldScaleBackground open={open} onOpenChange={onOpenChange}>
-            <NavigationToolbar>
+            <NavigationToolbar ref={ref}>
                 <Drawer.Trigger className="text-white underline underline-offset-3">Open Menu</Drawer.Trigger>
             </NavigationToolbar>
             <Drawer.Portal>
@@ -144,15 +144,15 @@ export function MobileNavigation({open, onOpenChange}: BaseNavigationProps): Rea
             </Drawer.Portal>
         </Drawer.Root>
     );
-};
+});
 
-export function Navigation(): ReactNode {
+export const Navigation = forwardRef<HTMLDivElement>((_, ref) => {
     const [open, setOpen] = useState(false);
     const isDesktop = useMediaQuery('(min-width: 768px)');
 
     if (isDesktop) {
-        return <DesktopNavigation open={open} onOpenChange={setOpen} />;
+        return <DesktopNavigation ref={ref} open={open} onOpenChange={setOpen} />;
     }
 
-    return <MobileNavigation open={open} onOpenChange={setOpen} />;
-}
+    return <MobileNavigation ref={ref} open={open} onOpenChange={setOpen} />;
+});
