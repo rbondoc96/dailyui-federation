@@ -13,7 +13,7 @@ export default defineConfig({
             filename: 'remoteEntry.js',
             exposes: {
                 './Counter': './src/components/Counter.tsx',
-                './DailyUI3': './src/challenges/DailyUI3.tsx',
+                './DailyUI3': './src/challenges/daily-ui-003/index.tsx',
             },
             shared: {
                 '@tailwindcss/postcss': {
